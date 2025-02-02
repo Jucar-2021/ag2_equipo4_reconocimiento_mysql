@@ -80,19 +80,20 @@ class _RecImagState extends State<RecImag> {
                       : _outputs != null
                           ? IntrinsicWidth(
                               child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(23),
-                                  color: Colors.amber),
-                              child: Text(
-                                "  ${_outputs![0]["label"].replaceAll(RegExp(r'^\d+\s*'), '')}  ",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 25.0,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(23),
+                                    color: Colors.amber),
+                                child: Text(
+                                  "  ${_outputs![0]["label"].replaceAll(RegExp(r'^\d+\s*'), '')}  ",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 25.0,
+                                  ),
                                 ),
                               ),
-                            ))
+                            )
                           : Container(child: const Text("")),
                   const SizedBox(
                     height: 20,
