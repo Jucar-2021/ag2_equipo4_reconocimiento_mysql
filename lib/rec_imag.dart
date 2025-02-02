@@ -50,7 +50,20 @@ class _RecImagState extends State<RecImag> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   img == null
-                      ? Container()
+                      ? Container(
+                          width: 300,
+                          height: 250,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.image_search,
+                                size: 200,
+                                color: const Color.fromARGB(255, 219, 218, 218),
+                              )
+                            ],
+                          ),
+                        )
                       : Container(
                           width: 300,
                           height: 250,
@@ -65,14 +78,21 @@ class _RecImagState extends State<RecImag> {
                   img == null
                       ? Container()
                       : _outputs != null
-                          ? Text(
-                              "${_outputs![0]["label"]}",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                background: Paint()..color = Colors.black,
+                          ? IntrinsicWidth(
+                              child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(23),
+                                  color: Colors.amber),
+                              child: Text(
+                                "  ${_outputs![0]["label"].replaceAll(RegExp(r'^\d+\s*'), '')}  ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 25.0,
+                                ),
                               ),
-                            )
+                            ))
                           : Container(child: const Text("")),
                   const SizedBox(
                     height: 20,
@@ -80,14 +100,28 @@ class _RecImagState extends State<RecImag> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      TextButton(
+                      Visibility(
+                        visible: img != null,
+                        child: TextButton(
                           style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.resolveWith(
                               (stado) {
                                 if (stado.contains(WidgetState.pressed)) {
                                   return Colors.orange;
                                 }
+                                return Colors.blue;
                               },
+                            ),
+                            foregroundColor:
+                                WidgetStateProperty.all(Colors.white),
+                            shape: WidgetStateProperty.all(
+                              RoundedRectangleBorder(
+                                side: BorderSide(
+                                  color: Colors.grey,
+                                  width: 4,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                             ),
                           ),
                           onPressed: () {
@@ -115,10 +149,15 @@ class _RecImagState extends State<RecImag> {
                             }
                           },
                           child: Text(
-                            "Ver especificaciones",
+                            "Mas informacion",
                             style: TextStyle(fontStyle: FontStyle.italic),
-                          )),
+                          ),
+                        ),
+                      )
                     ],
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

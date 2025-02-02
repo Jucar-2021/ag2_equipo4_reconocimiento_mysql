@@ -13,7 +13,7 @@ class Alertas {
           ),
           icon: const Icon(
             Icons.image_not_supported,
-            color: Colors.grey,
+            color: Colors.red,
             size: 50,
           ),
           actions: [

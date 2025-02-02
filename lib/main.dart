@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'rec_imag.dart';
+import 'package:lottie/lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class SplashPantalla extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Navegar después de 4 segundos
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 8), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const RecImag()),
@@ -34,14 +35,12 @@ class SplashPantalla extends StatelessWidget {
     });
 
     return Scaffold(
-      body: Stack(
-        fit: StackFit
-            .expand, // asegura que ocupe toda la pantalla independientemente del equipo
+        body: Container(
+      color: Colors.black,
+      child: Stack(
         children: [
-          Image.asset(
-            "assets/inic.jpg",
-            fit: BoxFit
-                .cover, // se ajusta la imagen para que cubla toda la pantalla
+          Positioned.fill(
+            child: Lottie.asset("assets/animacion.json"),
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -60,6 +59,6 @@ class SplashPantalla extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
