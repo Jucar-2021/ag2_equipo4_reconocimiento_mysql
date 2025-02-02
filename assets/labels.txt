@@ -1,0 +1,10 @@
+0 Paracetamol
+1 Ibuprofeno
+2 Omeprazol
+3 Metformina
+4 Diclofenaco
+5 Loratadina
+6 Pravastatina
+7 Aspirina
+8 Ampicilina
+9 Captopril
